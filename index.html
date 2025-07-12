@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mad Apple Circus | Official Site</title>
+  <meta name="description" content="Official site of Mad Apple Circus – music, gigs, merch, mailing list & more." />
+  <meta name="keywords" content="Mad Apple Circus, ska band, gigs, music, Bristol, live, merch, listen" />
+  <meta name="author" content="Mad Apple Circus" />
+  <meta property="og:title" content="Mad Apple Circus" />
+  <meta property="og:description" content="Listen, shop merch, get gig tickets and more from Mad Apple Circus." />
+  <meta property="og:image" content="preview.jpg" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://madapplecircus.com" />
+  <link rel="icon" href="favicon.ico" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="section" id="home" aria-label="Home Section">
+    <div class="overlay">
+      <h1>Mad Apple Circus</h1>
+      <nav class="menu" aria-label="Main Menu">
+        <a href="#shop" class="nav-btn">Shop</a>
+        <a href="#listen" class="nav-btn">Listen</a>
+        <a href="#live" class="nav-btn">Live</a>
+        <a href="#signup" class="nav-btn">Sign Up</a>
+        <a href="#contact" class="nav-btn">Contact</a>
+      </nav>
+    </div>
+    <audio id="bg-audio" src="YOUR_TUNE.mp3" autoplay loop></audio>
+  </div>
+
+  <div class="section hidden" id="shop" aria-label="Shop Section">
+    <a href="https://your-shopify-store.myshopify.com" target="_blank" class="external-link">Visit our Shop →</a>
+  </div>
+
+  <div class="section hidden" id="listen" aria-label="Listen Section">
+    <a href="https://tinyurl.com/YOURLISTEN" target="_blank" class="external-link">Listen Now →</a>
+  </div>
+
+  <div class="section hidden" id="live" aria-label="Live Shows Section">
+    <h2>Upcoming Gigs</h2>
+    <ul id="gig-list">
+      <li>12 July 2025 – Thekla, Bristol – <a href="https://ticket.link">Tickets</a></li>
+      <li>3 August 2025 – Boomtown Fair – <a href="https://ticket.link">Tickets</a></li>
+    </ul>
+  </div>
+
+  <div class="section hidden" id="signup" aria-label="Mailing List Signup">
+    <h2>Join Our Mailing List</h2>
+    <form id="signup-form">
+      <label for="email">Email</label>
+      <input type="email" name="email" id="email" placeholder="Your email" required />
+      <button type="submit">Subscribe</button>
+      <p id="signup-message"></p>
+    </form>
+  </div>
+
+  <div class="section hidden" id="contact" aria-label="Contact Form Section">
+    <h2>Contact / Booking</h2>
+    <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+      <label for="name">Name</label>
+      <input type="text" name="name" id="name" placeholder="Your name" required />
+
+      <label for="replyto">Email</label>
+      <input type="email" name="_replyto" id="replyto" placeholder="Your email" required />
+
+      <label for="message">Message</label>
+      <textarea name="message" id="message" rows="4" placeholder="Your message" required></textarea>
+
+      <button type="submit">Send Message</button>
+    </form>
+  </div>
+
+  <footer>
+    <a href="https://instagram.com/madapplecircus" target="_blank" aria-label="Instagram">
+      <img src="instagram-icon.svg" alt="Instagram" width="24" height="24" />
+    </a>
+    <a href="https://facebook.com/madapplecircus" target="_blank" aria-label="Facebook">
+      <img src="facebook-icon.svg" alt="Facebook" width="24" height="24" />
+    </a>
+    <a href="https://youtube.com/madapplecircus" target="_blank" aria-label="YouTube">
+      <img src="youtube-icon.svg" alt="YouTube" width="24" height="24" />
+    </a>
+    <a href="https://open.spotify.com/artist/YOUR_ID" target="_blank" aria-label="Spotify">
+      <img src="spotify-icon.svg" alt="Spotify" width="24" height="24" />
+    </a>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
