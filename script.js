@@ -1,19 +1,61 @@
-const navButtons = document.querySelectorAll('.nav-btn');
-const sections = document.querySelectorAll('.section');
-
-navButtons.forEach(btn => {
-  btn.addEventListener('click', e => {
-    e.preventDefault();
-    const target = btn.getAttribute('href').substring(1);
-    sections.forEach(sec => {
-      if (sec.id === target) {
-        sec.classList.remove('hidden');
-      } else {
-        sec.classList.add('hidden');
-      }
+console.log("Script loaded")
+const sections = document.querySelectorAll(".section");
+const navLinks = document.querySelectorAll(".nav-btn");
+document.addEventListener("DOMContentLoaded", () => {
+  console.log("Script loaded and DOM fully parsed");
+  
+  // Handle nav link clicks
+  navLinks.forEach(link => {
+    link.addEventListener("click", e => {
+      e.preventDefault();
+      const targetId = link.getAttribute("href").substring(1);
+      showSection(targetId);
+  
+      // Update URL without reloading
+      history.pushState(null, "", `#${targetId}`);
     });
   });
+
+  // Handle back/forward browser buttons
+  window.addEventListener("popstate", () => {
+    const hash = window.location.hash.substring(1) || "home";
+    console.log("Back/forward navigation detected:", hash);
+    showSection(hash);
+  });
+
+  // Handle direct loading with a hash (e.g. #shop)
+  const initialHash = window.location.hash.substring(1);
+  if (initialHash) {
+    console.log("Page loaded with hash:", initialHash);
+    showSection(initialHash);
+  } else {
+    console.log("Page loaded without hash; showing home");
+    showSection("home");
+  }
 });
+
+function showSection(sectionId) {
+  console.log(`Navigating to section: #${sectionId}`);
+
+  // Hide all sections
+  sections.forEach(section => section.classList.add("hidden"));
+
+  // Show the selected section
+  const target = document.getElementById(sectionId);
+  if (target) {
+    target.classList.remove("hidden");
+    console.log(`Section #${sectionId} shown`);
+  } else {
+    console.warn(`Section #${sectionId} not found`);
+  }
+
+  // Always hide the home screen unless going to home
+  if (sectionId !== "home") {
+    document.getElementById("home").classList.add("hidden");
+  } else {
+    document.getElementById("home").classList.remove("hidden");
+  }
+}
 
 // Optional: fallback for autoplay blocked by browsers
 document.addEventListener('DOMContentLoaded', () => {
@@ -26,13 +68,20 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-// Close a section
-function closeSection(sectionId, reload_home) {
-  document.getElementById(sectionId).classList.add("hidden");
+// // Close a section
+// function closeSection(sectionId, reload_home) {
+//   document.getElementById(sectionId).classList.add("hidden");
 
-  // Show the main menu again
+//   // Show the main menu again
+//   if (reload_home) {
+//     document.getElementById("home").classList.remove("hidden");
+//   }
+// }
+function closeSection(id, reload_home = false) {
+  document.getElementById(id).classList.add("hidden");
   if (reload_home) {
-    document.getElementById("home").classList.remove("hidden");
+    showSection("home");
+    history.pushState(null, "", "#home");
   }
 }
 
