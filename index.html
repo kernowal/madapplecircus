@@ -55,7 +55,7 @@
     <button class="close-btn" onclick="closeSection('signup')">&times; Close</button>
     <form 
       id="mailing-list-form"
-      action="https://docs.google.com/forms/d/e/15TVoHjwnEmoRRoAGt8NpRRqjFunkNEklQK9cnOnbhF0/formResponse"
+      action="https://docs.google.com/forms/d/e/1FAIpQLSdMETAo1ntsKLBAlCjsyjlMEvSxMEdXthnOczAkY-IeJ3cslg/formResponse"
       method="POST"
       target="hidden_iframe"
       onsubmit="return handleSubmit();"
@@ -76,8 +76,8 @@
   
   <div class="section hidden" id="signup-success-modal" aria-label="Signup Success Modal">
     <h2>🎉 Thank You!</h2>
-    <p>You have been added to our mailing list. See you in th fields</p>
-    <a href="/" class="button">Back to Home</a>
+    <p>You have been added to our mailing list. See you in the fields</p>
+    <a class="button" onclick="closeSection('signup-success-modal')">Back to Home</a>
     <button class="close-btn" onclick="closeSection('signup-success-modal')">&times; Close</button>
   </div>
 
@@ -110,7 +110,7 @@
   <div class="section hidden" id="thank-you-modal" aria-label="Thank You Modal">
     <h2>🎉 Thank You!</h2>
     <p>Your message has been sent. We'll get back to you as soon as we can.</p>
-    <a href="/" class="button">Back to Home</a>
+    <a class="button" onclick="closeSection('thank-you-modal')">Back to Home</a>
     <button class="close-btn" onclick="closeSection('thank-you-modal')">&times; Close</button>
   </div>
 
