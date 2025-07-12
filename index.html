@@ -31,18 +31,21 @@
   </div>
 
   <div class="section hidden" id="shop" aria-label="Shop Section">
+    <button class="close-btn" onclick="closeSection('shop')">&times; Close</button>
     <a href="https://your-shopify-store.myshopify.com" target="_blank" class="external-link">Visit our Shop →</a>
   </div>
 
   <div class="section hidden" id="listen" aria-label="Listen Section">
-    <a href="https://tinyurl.com/YOURLISTEN" target="_blank" class="external-link">Listen Now →</a>
+    <button class="close-btn" onclick="closeSection('listen')">&times; Close</button>
+    <a href="https://linktr.ee/madapplecircus?fbclid=PAQ0xDSwLfKv1leHRuA2FlbQIxMQABpzFXQXT1AfjHQgzDF1P8sxSSIhEAms05D_N0sM1r3AoPo8YKhLWYz_zrqeoA_aem_2hyqr2lglcnHM8jnSOyjHA" target="_blank" class="external-link">Listen Now →</a>
   </div>
 
   <div class="section hidden" id="live" aria-label="Live Shows Section">
     <h2>Upcoming Gigs</h2>
+    <button class="close-btn" onclick="closeSection('live')">&times; Close</button>
     <ul id="gig-list">
-      <li>12 September 2025 – Thekla, Bristol – <a href="https://ticket.link">Tickets</a></li>
       <li>10 August 2025 – Boomtown Fair – <a href="https://ticket.link">Tickets</a></li>
+      <li>12 September 2025 – Thekla, Bristol – <a href="https://ticket.link">Tickets</a></li>
     </ul>
   </div>
 
@@ -62,6 +65,7 @@
 
     <button type="submit">Subscribe</button>
   </form>
+  <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
 </div>
 
   <div class="section hidden" id="contact" aria-label="Contact Form Section">
@@ -105,16 +109,16 @@
 
   <footer>
     <a href="https://instagram.com/madapplecircus" target="_blank" aria-label="Instagram">
-      <img src="assets/instagram-icon.svg" alt="Instagram" width="24" height="24" />
+      <img src="assets/instagram-icon.svg" alt="Instagram" width="24" height="24" class="social-icon" />
     </a>
     <a href="https://facebook.com/madapplecircus" target="_blank" aria-label="Facebook">
-      <img src="assets/facebook-icon.svg" alt="Facebook" width="24" height="24" />
+      <img src="assets/facebook-icon.svg" alt="Facebook" width="24" height="24" class="social-icon" />
     </a>
     <a href="https://youtube.com/madapplecircus" target="_blank" aria-label="YouTube">
-      <img src="assets/youtube-icon.svg" alt="YouTube" width="24" height="24" />
+      <img src="assets/youtube-icon.svg" alt="YouTube" width="24" height="24" class="social-icon" />
     </a>
     <a href="https://open.spotify.com/artist/7MN4FW4FDjVRTAhpIb3iAS" target="_blank" aria-label="Spotify">
-      <img src="assets/spotify-icon.svg" alt="Spotify" width="24" height="24" />
+      <img src="assets/spotify-icon.svg" alt="Spotify" width="24" height="24" class="social-icon" />
     </a>
   </footer>
 
