@@ -38,11 +38,8 @@ if (signupForm) {
 function closeSection(sectionId) {
   document.getElementById(sectionId).classList.add("hidden");
 
-  // Show the main menu again if it was hidden
-  const mainMenu = document.getElementById("home");
-  if (mainMenu) {
-    mainMenu.classList.remove("hidden");
-  }
+  // Show the main menu again
+  document.getElementById("home").classList.remove("hidden");
 }
 
 // Thank you modal
@@ -61,6 +58,29 @@ document.addEventListener("DOMContentLoaded", () => {
         form.reset();
         closeSection('contact');
         document.getElementById('thank-you-modal').classList.remove('hidden');
+      } else {
+        alert("Something went wrong. Please try again later.");
+      }
+    });
+  });
+});
+
+// Thank you modal
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.querySelector('#contact form');
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const formData = new FormData(form);
+    fetch(form.action, {
+      method: form.method,
+      body: formData,
+      headers: { 'Accept': 'application/json' }
+    }).then(response => {
+      if (response.ok) {
+        form.reset();
+        closeSection('signup');
+        document.getElementById('signup-success-modal').classList.remove('hidden');
       } else {
         alert("Something went wrong. Please try again later.");
       }
