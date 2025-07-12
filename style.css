@@ -9,6 +9,13 @@ body, html {
   background: black;
   overflow: hidden;
 }
+body {
+  background-image: url('assets/background.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
 .section {
   position: fixed;
   width: 100%;
