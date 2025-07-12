@@ -25,14 +25,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
-// Dummy signup
-const signupForm = document.getElementById('signup-form');
-if (signupForm) {
-  signupForm.addEventListener('submit', e => {
-    e.preventDefault();
-    document.getElementById('signup-message').textContent = 'Thanks! (This is a demo.)';
-  });
-}
 
 // Close a section
 function closeSection(sectionId) {
@@ -65,9 +57,28 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+function handleSubmit() {
+  const honeypot = document.getElementById("honeypot").value;
+  if (honeypot !== "") return false; // bot
+
+  const submitBtn = document.querySelector("#mailing-list-form button");
+  submitBtn.disabled = true;
+  submitBtn.textContent = "Submitting...";
+
+  // Submission handled in iframe
+  return true;
+}
+
 document.getElementById('hidden_iframe').addEventListener('load', function() {
   const form = document.getElementById('mailing-list-form');
-  form.reset();
-  closeSection('signup');
-  document.getElementById('signup-success-modal').classList.remove('hidden');
+  const name = form.querySelector("#name").value;
+  const email = form.querySelector("#email").value;
+  if (name !== "" & email != "") {
+    form.reset();
+    const submitBtn = form.querySelector("button[type='submit']");
+    submitBtn.disabled = false;
+    submitBtn.textContent = "Subscribe";
+    closeSection('signup');
+    document.getElementById('signup-success-modal').classList.remove('hidden');
+  }
 });
