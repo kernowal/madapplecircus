@@ -39,7 +39,7 @@ function closeSection(sectionId) {
   document.getElementById(sectionId).classList.add("hidden");
 
   // Show the main menu again if it was hidden
-  const mainMenu = document.getElementById("main-menu");
+  const mainMenu = document.getElementById("home");
   if (mainMenu) {
     mainMenu.classList.remove("hidden");
   }
