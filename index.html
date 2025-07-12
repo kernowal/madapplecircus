@@ -67,9 +67,15 @@
       <input type="email" name="email" id="replyto" placeholder="Your email" required />
     
       <label for="message">Message</label>
-      <textarea name="message" id="message" rows="4" placeholder="Your message" required></textarea>
-    
-      <input type="hidden" name="_captcha" value="false">
+      <textarea name="message" id="message" rows="4" placeholder="Your message" required minlength="50"></textarea>
+      
+      <!-- Honeypot field to trap bots -->
+      <div style="display: none;">
+        <label>Leave this field empty</label>
+        <input type="text" name="_honey">
+      </div>
+
+      <input type="hidden" name="_captcha" value="true">
       <input type="hidden" name="_template" value="box">
       <input type="hidden" name="_next" value="https://madapplecircus.com/thank-you.html">
     
