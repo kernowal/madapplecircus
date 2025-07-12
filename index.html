@@ -12,7 +12,7 @@
   <meta property="og:image" content="preview.jpg" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://madapplecircus.com" />
-  <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="icon" href="favicon.ico"/>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -22,7 +22,7 @@
       <nav class="menu" aria-label="Main Menu">
         <a href="#shop" class="nav-btn">Shop</a>
         <a href="#listen" class="nav-btn">Listen</a>
-        <a href="#live" class="nav-btn">Live</a>
+        <a href="#gigs" class="nav-btn">Gigs</a>
         <a href="#signup" class="nav-btn">Sign Up</a>
         <a href="#contact" class="nav-btn">Contact</a>
       </nav>
@@ -31,18 +31,18 @@
   </div>
 
   <div class="section hidden" id="shop" aria-label="Shop Section">
-    <button class="close-btn" onclick="closeSection('shop', true)">&times; Close</button>
+    <button class="close-btn" onclick="closeSection('shop')">&times; Close</button>
     <a href="https://your-shopify-store.myshopify.com" target="_blank" class="external-link">Visit our Shop →</a>
   </div>
 
   <div class="section hidden" id="listen" aria-label="Listen Section">
-    <button class="close-btn" onclick="closeSection('listen', true)">&times; Close</button>
+    <button class="close-btn" onclick="closeSection('listen')">&times; Close</button>
     <a href="https://linktr.ee/madapplecircus?fbclid=PAQ0xDSwLfKv1leHRuA2FlbQIxMQABpzFXQXT1AfjHQgzDF1P8sxSSIhEAms05D_N0sM1r3AoPo8YKhLWYz_zrqeoA_aem_2hyqr2lglcnHM8jnSOyjHA" target="_blank" class="external-link">Listen Now →</a>
   </div>
 
-  <div class="section hidden" id="live" aria-label="Live Shows Section">
+  <div class="section hidden" id="gigs" aria-label="Live Shows Section">
     <h2>Upcoming Gigs</h2>
-    <button class="close-btn" onclick="closeSection('live', true)">&times; Close</button>
+    <button class="close-btn" onclick="closeSection('gigs')">&times; Close</button>
     <ul id="gig-list">
       <li>10 August 2025 – Boomtown Fair – <a href="https://ticket.link">Tickets</a></li>
       <li>12 September 2025 – Thekla, Bristol – <a href="https://ticket.link">Tickets</a></li>
@@ -52,7 +52,7 @@
   <!-- Mailing List Modal Section -->
   <div class="section hidden" id="signup" aria-label="Mailing List Signup">
     <h2>Join Our Mailing List</h2>
-    <button class="close-btn" onclick="closeSection('signup', true)">&times; Close</button>
+    <button class="close-btn" onclick="closeSection('signup')">&times; Close</button>
     <form 
       id="mailing-list-form"
       action="https://docs.google.com/forms/d/e/1FAIpQLSdMETAo1ntsKLBAlCjsyjlMEvSxMEdXthnOczAkY-IeJ3cslg/formResponse"
@@ -77,13 +77,13 @@
   <div class="section hidden modal" id="signup-success-modal" aria-label="Signup Success Modal">
     <h2>🎉 Thank You!</h2>
     <p>You have been added to our mailing list. See you in the fields</p>
-    <a class="button" onclick="closeSection('signup-success-modal', true)">Back to Home</a>
-    <button class="close-btn" onclick="closeSection('signup-success-modal', true)">&times; Close</button>
+    <a class="button" onclick="closeSection('signup-success-modal')">Back to Home</a>
+    <button class="close-btn" onclick="closeSection('signup-success-modal')">&times; Close</button>
   </div>
 
   <div class="section hidden" id="contact" aria-label="Contact Form Section">
     <h2>Contact / Booking</h2>
-    <button class="close-btn" onclick="closeSection('contact', true)">&times; Close</button>
+    <button class="close-btn" onclick="closeSection('contact')">&times; Close</button>
     <form action="https://formsubmit.co/ajax/2706faac08f144e7378fc909b579c3ac" method="POST">
       <label for="name">Name</label>
       <input type="text" name="name" id="name" placeholder="Your name" required />
@@ -110,22 +110,28 @@
   <div class="section hidden modal" id="thank-you-modal" aria-label="Thank You Modal">
     <h2>🎉 Thank You!</h2>
     <p>Your message has been sent. We'll get back to you as soon as we can.</p>
-    <a class="button" onclick="closeSection('thank-you-modal', true)">Back to Home</a>
-    <button class="close-btn" onclick="closeSection('thank-you-modal', true)">&times; Close</button>
+    <a class="button" onclick="closeSection('thank-you-modal')">Back to Home</a>
+    <button class="close-btn" onclick="closeSection('thank-you-modal')">&times; Close</button>
   </div>
 
   <footer>
+    <a href="https://open.spotify.com/artist/7MN4FW4FDjVRTAhpIb3iAS" target="_blank" aria-label="Spotify">
+      <img src="assets/spotify-icon.svg" alt="Spotify" width="36" height="36" class="social-icon" />
+    </a>
+    <a href="https://music.apple.com/gb/artist/mad-apple-circus/493374911" target="_blank" aria-label="Apple Music">
+      <img src="assets/applemusic-icon.svg" alt="Apple Music" width="36" height="36" class="social-icon" />
+    </a>
+    <a href="https://youtube.com/madapplecircus" target="_blank" aria-label="YouTube">
+      <img src="assets/youtube-icon.svg" alt="YouTube" width="36" height="36" class="social-icon" />
+    </a>
     <a href="https://instagram.com/madapplecircus" target="_blank" aria-label="Instagram">
       <img src="assets/instagram-icon.svg" alt="Instagram" width="36" height="36" class="social-icon" />
     </a>
     <a href="https://facebook.com/madapplecircus" target="_blank" aria-label="Facebook">
       <img src="assets/facebook-icon.svg" alt="Facebook" width="36" height="36" class="social-icon" />
     </a>
-    <a href="https://youtube.com/madapplecircus" target="_blank" aria-label="YouTube">
-      <img src="assets/youtube-icon.svg" alt="YouTube" width="36" height="36" class="social-icon" />
-    </a>
-    <a href="https://open.spotify.com/artist/7MN4FW4FDjVRTAhpIb3iAS" target="_blank" aria-label="Spotify">
-      <img src="assets/spotify-icon.svg" alt="Spotify" width="36" height="36" class="social-icon" />
+    <a href="https://www.tiktok.com/@madapplecircus" target="_blank" aria-label="Tik Tok">
+      <img src="assets/tiktok-icon.svg" alt="Tik Tok" width="36" height="36" class="social-icon" />
     </a>
   </footer>
 

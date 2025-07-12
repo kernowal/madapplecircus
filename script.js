@@ -1,4 +1,3 @@
-console.log("Script loaded")
 const sections = document.querySelectorAll(".section");
 const navLinks = document.querySelectorAll(".nav-btn");
 document.addEventListener("DOMContentLoaded", () => {
@@ -67,22 +66,10 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
-
-// // Close a section
-// function closeSection(sectionId, reload_home) {
-//   document.getElementById(sectionId).classList.add("hidden");
-
-//   // Show the main menu again
-//   if (reload_home) {
-//     document.getElementById("home").classList.remove("hidden");
-//   }
-// }
-function closeSection(id, reload_home = false) {
+function closeSection(id) {
   document.getElementById(id).classList.add("hidden");
-  if (reload_home) {
-    showSection("home");
-    history.pushState(null, "", "#home");
-  }
+  showSection("home");
+  history.pushState(null, "", "#home");
 }
 
 // Thank you modal
