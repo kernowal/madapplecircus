@@ -31,18 +31,18 @@
   </div>
 
   <div class="section hidden" id="shop" aria-label="Shop Section">
-    <button class="close-btn" onclick="closeSection('shop')">&times; Close</button>
+    <button class="close-btn" onclick="closeSection('shop', true)">&times; Close</button>
     <a href="https://your-shopify-store.myshopify.com" target="_blank" class="external-link">Visit our Shop →</a>
   </div>
 
   <div class="section hidden" id="listen" aria-label="Listen Section">
-    <button class="close-btn" onclick="closeSection('listen')">&times; Close</button>
+    <button class="close-btn" onclick="closeSection('listen', true)">&times; Close</button>
     <a href="https://linktr.ee/madapplecircus?fbclid=PAQ0xDSwLfKv1leHRuA2FlbQIxMQABpzFXQXT1AfjHQgzDF1P8sxSSIhEAms05D_N0sM1r3AoPo8YKhLWYz_zrqeoA_aem_2hyqr2lglcnHM8jnSOyjHA" target="_blank" class="external-link">Listen Now →</a>
   </div>
 
   <div class="section hidden" id="live" aria-label="Live Shows Section">
     <h2>Upcoming Gigs</h2>
-    <button class="close-btn" onclick="closeSection('live')">&times; Close</button>
+    <button class="close-btn" onclick="closeSection('live', true)">&times; Close</button>
     <ul id="gig-list">
       <li>10 August 2025 – Boomtown Fair – <a href="https://ticket.link">Tickets</a></li>
       <li>12 September 2025 – Thekla, Bristol – <a href="https://ticket.link">Tickets</a></li>
@@ -52,7 +52,7 @@
   <!-- Mailing List Modal Section -->
   <div class="section hidden" id="signup" aria-label="Mailing List Signup">
     <h2>Join Our Mailing List</h2>
-    <button class="close-btn" onclick="closeSection('signup')">&times; Close</button>
+    <button class="close-btn" onclick="closeSection('signup', true)">&times; Close</button>
     <form 
       id="mailing-list-form"
       action="https://docs.google.com/forms/d/e/1FAIpQLSdMETAo1ntsKLBAlCjsyjlMEvSxMEdXthnOczAkY-IeJ3cslg/formResponse"
@@ -77,13 +77,13 @@
   <div class="section hidden" id="signup-success-modal" aria-label="Signup Success Modal">
     <h2>🎉 Thank You!</h2>
     <p>You have been added to our mailing list. See you in the fields</p>
-    <a class="button" onclick="closeSection('signup-success-modal')">Back to Home</a>
-    <button class="close-btn" onclick="closeSection('signup-success-modal')">&times; Close</button>
+    <a class="button" onclick="closeSection('signup-success-modal', true)">Back to Home</a>
+    <button class="close-btn" onclick="closeSection('signup-success-modal', true)">&times; Close</button>
   </div>
 
   <div class="section hidden" id="contact" aria-label="Contact Form Section">
     <h2>Contact / Booking</h2>
-    <button class="close-btn" onclick="closeSection('contact')">&times; Close</button>
+    <button class="close-btn" onclick="closeSection('contact', true)">&times; Close</button>
     <form action="https://formsubmit.co/ajax/2706faac08f144e7378fc909b579c3ac" method="POST">
       <label for="name">Name</label>
       <input type="text" name="name" id="name" placeholder="Your name" required />
@@ -110,8 +110,8 @@
   <div class="section hidden" id="thank-you-modal" aria-label="Thank You Modal">
     <h2>🎉 Thank You!</h2>
     <p>Your message has been sent. We'll get back to you as soon as we can.</p>
-    <a class="button" onclick="closeSection('thank-you-modal')">Back to Home</a>
-    <button class="close-btn" onclick="closeSection('thank-you-modal')">&times; Close</button>
+    <a class="button" onclick="closeSection('thank-you-modal', true)">Back to Home</a>
+    <button class="close-btn" onclick="closeSection('thank-you-modal', true)">&times; Close</button>
   </div>
 
   <footer>

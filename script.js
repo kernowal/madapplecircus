@@ -27,11 +27,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 // Close a section
-function closeSection(sectionId) {
+function closeSection(sectionId, reload_home) {
   document.getElementById(sectionId).classList.add("hidden");
 
   // Show the main menu again
-  document.getElementById("home").classList.remove("hidden");
+  if (reload_home) {
+    document.getElementById("home").classList.remove("hidden");
+  }
 }
 
 // Thank you modal
@@ -48,7 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }).then(response => {
       if (response.ok) {
         form.reset();
-        closeSection('contact');
+        closeSection('contact', false);
         document.getElementById('thank-you-modal').classList.remove('hidden');
       } else {
         alert("Something went wrong. Please try again later.");
@@ -78,7 +80,7 @@ document.getElementById('hidden_iframe').addEventListener('load', function() {
     const submitBtn = form.querySelector("button[type='submit']");
     submitBtn.disabled = false;
     submitBtn.textContent = "Subscribe";
-    closeSection('signup');
+    closeSection('signup', false);
     document.getElementById('signup-success-modal').classList.remove('hidden');
   }
 });

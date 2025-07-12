@@ -128,7 +128,14 @@ button {
 #thank-you-modal p {
   max-width: 600px;
 }
+.social-icon {
+  opacity: 0.5;
+  transition: opacity 0.3s ease-in-out;
+}
 
+.social-icon:hover {
+  opacity: 1;
+}
 footer {
   position: fixed;
   bottom: 1rem;
