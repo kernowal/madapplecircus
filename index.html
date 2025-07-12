@@ -58,32 +58,38 @@
 
   <div class="section hidden" id="contact" aria-label="Contact Form Section">
     <h2>Contact / Booking</h2>
-    <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+    <button class="close-btn" onclick="closeSection('contact')">&times; Close</button>
+    <form action="https://formsubmit.co/madapplecircus@gmail.com" method="POST">
       <label for="name">Name</label>
       <input type="text" name="name" id="name" placeholder="Your name" required />
-
+    
       <label for="replyto">Email</label>
-      <input type="email" name="_replyto" id="replyto" placeholder="Your email" required />
-
+      <input type="email" name="email" id="replyto" placeholder="Your email" required />
+    
       <label for="message">Message</label>
       <textarea name="message" id="message" rows="4" placeholder="Your message" required></textarea>
-
+    
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_template" value="box">
+      <input type="hidden" name="_next" value="https://madapplecircus.com/thank-you.html">
+    
       <button type="submit">Send Message</button>
     </form>
+    
   </div>
 
   <footer>
     <a href="https://instagram.com/madapplecircus" target="_blank" aria-label="Instagram">
-      <img src="instagram-icon.svg" alt="Instagram" width="24" height="24" />
+      <img src="assets/instagram-icon.svg" alt="Instagram" width="24" height="24" />
     </a>
     <a href="https://facebook.com/madapplecircus" target="_blank" aria-label="Facebook">
-      <img src="facebook-icon.svg" alt="Facebook" width="24" height="24" />
+      <img src="assets/facebook-icon.svg" alt="Facebook" width="24" height="24" />
     </a>
     <a href="https://youtube.com/madapplecircus" target="_blank" aria-label="YouTube">
-      <img src="youtube-icon.svg" alt="YouTube" width="24" height="24" />
+      <img src="assets/youtube-icon.svg" alt="YouTube" width="24" height="24" />
     </a>
-    <a href="https://open.spotify.com/artist/YOUR_ID" target="_blank" aria-label="Spotify">
-      <img src="spotify-icon.svg" alt="Spotify" width="24" height="24" />
+    <a href="https://open.spotify.com/artist/7MN4FW4FDjVRTAhpIb3iAS" target="_blank" aria-label="Spotify">
+      <img src="assets/spotify-icon.svg" alt="Spotify" width="24" height="24" />
     </a>
   </footer>
 

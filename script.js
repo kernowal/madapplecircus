@@ -34,3 +34,7 @@ if (signupForm) {
   });
 }
 
+// Close a section
+function closeSection(sectionId) {
+  document.getElementById(sectionId).classList.add("hidden");
+}

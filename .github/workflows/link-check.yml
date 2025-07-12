@@ -1,0 +1,35 @@
+name: Link Check
+
+on:
+  schedule:
+    - cron: '0 12 * * 1'
+  workflow_dispatch:
+
+jobs:
+  link-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Install Link Checker (lychee)
+        uses: lycheeverse/lychee-action@v1.9.2
+        with:
+          args: "--verbose --no-progress --exclude-mail --accept 200,429 ."
+
+      - name: Annotate broken links
+        if: failure()
+        run: echo "❌ Broken links found. Please review the workflow logs."
+
+      - name: Send email on failure
+        if: failure()
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          username: ${{ secrets.EMAIL_USERNAME }}
+          password: ${{ secrets.EMAIL_PASSWORD }}
+          subject: "🚨 Link Check Failed on Mad Apple Circus Website"
+          to: macmusicmedia@gmail.com
+          from: Mad Apple Bot <${{ secrets.EMAIL_USERNAME }}>
+          body: "Link check failed. Please review the CI logs here: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
