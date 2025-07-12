@@ -46,15 +46,23 @@
     </ul>
   </div>
 
-  <div class="section hidden" id="signup" aria-label="Mailing List Signup">
-    <h2>Join Our Mailing List</h2>
-    <form id="signup-form">
-      <label for="email">Email</label>
-      <input type="email" name="email" id="email" placeholder="Your email" required />
-      <button type="submit">Subscribe</button>
-      <p id="signup-message"></p>
-    </form>
-  </div>
+  <!-- Mailing List Modal Section -->
+<div class="section hidden" id="mailing-list" aria-label="Mailing List Signup">
+  <h2>Join Our Mailing List</h2>
+  <button class="close-btn" onclick="closeSection('mailing-list')">&times; Close</button>
+  <form action="https://docs.google.com/forms/d/e/15TVoHjwnEmoRRoAGt8NpRRqjFunkNEklQK9cnOnbhF0/formResponse" method="POST" target="_blank">
+    <label for="name">Name</label>
+    <input type="text" name="entry.220873809" id="name" placeholder="Your name" required pattern="[A-Za-z\s]{2,50}" >
+
+    <label for="email">Email</label>
+    <input type="email" name="entry.1653716162" id="email" placeholder="Your email" required>
+
+    <!-- Honeypot field -->
+    <input type="text" name="company" id="honeypot" style="display:none" tabindex="-1" autocomplete="off">
+
+    <button type="submit">Subscribe</button>
+  </form>
+</div>
 
   <div class="section hidden" id="contact" aria-label="Contact Form Section">
     <h2>Contact / Booking</h2>

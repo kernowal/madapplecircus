@@ -37,6 +37,12 @@ if (signupForm) {
 // Close a section
 function closeSection(sectionId) {
   document.getElementById(sectionId).classList.add("hidden");
+
+  // Show the main menu again if it was hidden
+  const mainMenu = document.getElementById("main-menu");
+  if (mainMenu) {
+    mainMenu.classList.remove("hidden");
+  }
 }
 
 // Thank you modal
