@@ -26,17 +26,25 @@
 </script>
 <body>
   <div class="section" id="home" aria-label="Home Section">
+    <video autoplay muted loop playsinline id="bg-video" poster="background.jpg">
+      <source src="assets/background-video.mp4" type="video/mp4">
+      <!-- Optional WebM version for better compression -->
+      <source src="assets/background-video.webm" type="video/webm">
+      Your browser does not support the video tag.
+    </video>
     <div class="overlay">
-      <h1>Mad Apple Circus</h1>
-      <nav class="menu" aria-label="Main Menu">
-        <a href="#shop" class="nav-btn">Shop</a>
-        <a href="#listen" class="nav-btn">Listen</a>
-        <a href="#gigs" class="nav-btn">Gigs</a>
-        <a href="#signup" class="nav-btn">Sign Up</a>
-        <a href="#contact" class="nav-btn">Contact</a>
-      </nav>
+      <div class="menu-container">
+        <img src="assets/mac-logo.png" alt="Mad Apple Circus Logo" class="menu-logo" id="menu-logo">
+        <nav class="radial-menu" id="radial-menu" aria-label="Main Menu">
+          <a href="#shop" class="nav-btn" aria-label="Shop"><img src="assets/shop-icon.svg" alt="Shop" /></a>
+          <a href="#listen" class="nav-btn" aria-label="Listen"><img src="assets/music-icon.svg" alt="Listen" /></a>
+          <a href="#gigs" class="nav-btn" aria-label="Gigs"><img src="assets/live-icon.svg" alt="Live" /></a>
+          <a href="#signup" class="nav-btn" aria-label="Sign Up"><img src="assets/signup-icon.svg" alt="Mailing" /></a>
+          <a href="#contact" class="nav-btn" aria-label="Contact"><img src="assets/contact-icon.svg" alt="Contact" /></a>
+        </nav>
+      </div>
     </div>
-    <audio id="bg-audio" src="YOUR_TUNE.mp3" autoplay loop></audio>
+    <audio id="bg-audio" src="MARATHON.wav" autoplay loop></audio>
   </div>
 
   <div class="section hidden" id="shop" aria-label="Shop Section">

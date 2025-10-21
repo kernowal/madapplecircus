@@ -9,11 +9,121 @@ body, html {
   background: black;
   overflow: hidden;
 }
-body {
-  background-image: url('assets/background.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+
+#bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -1;
+  object-fit: cover;
+  background-color: black; /* fallback */
+}
+
+@media (max-width: 20%) {
+  #bg-video {
+    display: none;
+  }
+
+  body {
+    background: url('background.jpg') center center / cover no-repeat fixed;
+  }
+}
+
+.overlay {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu-logo {
+  width: 240px;
+  height: 240px;
+  cursor: pointer;
+  z-index: 2;
+  transition: transform 0.4s ease;
+}
+
+.menu-logo:hover {
+  transform: scale(1.1);
+}
+
+.radial-menu {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+  z-index: 20;
+}
+.radial-menu.open {
+  pointer-events: auto;
+}
+
+/* Buttons hidden by default */
+.radial-menu .nav-btn {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  line-height: normal;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+  transform-origin: center center;
+  transform: rotate(0deg) translate(0) rotate(0deg);
+  opacity: 0;
+  transition: transform 0.5s ease, opacity 0.5s ease, background 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Animate buttons when menu opens */
+/* .radial-menu.open .nav-btn:nth-child(1) { transform: rotate(0deg) translate(180px); opacity:1; }
+.radial-menu.open .nav-btn:nth-child(2) { transform: rotate(72deg) translate(180px); opacity:1; }
+.radial-menu.open .nav-btn:nth-child(3) { transform: rotate(144deg) translate(180px); opacity:1; }
+.radial-menu.open .nav-btn:nth-child(4) { transform: rotate(216deg) translate(180px); opacity:1; }
+.radial-menu.open .nav-btn:nth-child(5) { transform: rotate(288deg) translate(180px); opacity:1; } */
+
+/* Hover effect */
+.radial-menu .nav-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+  transform: scale(1.15);
+}
+
+/* Add a pop-out animation */
+@keyframes flyOut {
+  from {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .section {
@@ -21,7 +131,6 @@ body {
   width: 100%;
   height: 100%;
   top: 0; left: 0;
-  background: url('YOUR_BACKGROUND.jpg') center/cover no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -147,3 +256,12 @@ footer a img {
   filter: brightness(1) invert(1);
 }
 
+/* 
+BLACK #000000
+WHITE #FFFFFF
+TEAL #308577
+PALE BLUE #6BCCC1
+ORANGE #E89D02
+PINK #E35B70
+RED #C53C54
+*/

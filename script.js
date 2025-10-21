@@ -1,17 +1,36 @@
 const sections = document.querySelectorAll(".section");
-const navLinks = document.querySelectorAll(".nav-btn");
+
 document.addEventListener("DOMContentLoaded", () => {
   console.log("Script loaded and DOM fully parsed");
-  
+
+  const logo = document.getElementById("menu-logo");
+  const radialMenu = document.getElementById("radial-menu");
+  const navLinks = document.querySelectorAll(".nav-btn"); // moved inside
+
+  // Toggle radial menu visibility
+  logo.addEventListener("click", () => {
+    radialMenu.classList.toggle("open");
+    console.log("Menu toggled:", radialMenu.classList.contains("open"));
+    if(radialMenu.classList.contains("open")){
+      openRadialMenu();
+    } else {
+      closeRadialMenu();
+    }
+  });
+
   // Handle nav link clicks
   navLinks.forEach(link => {
     link.addEventListener("click", e => {
       e.preventDefault();
       const targetId = link.getAttribute("href").substring(1);
+      console.log("Clicked nav link:", targetId);
       showSection(targetId);
-  
+
       // Update URL without reloading
       history.pushState(null, "", `#${targetId}`);
+
+      // Optionally close the radial menu after clicking
+      radialMenu.classList.remove("open");
     });
   });
 
@@ -32,6 +51,51 @@ document.addEventListener("DOMContentLoaded", () => {
     showSection("home");
   }
 });
+
+function openRadialMenu() {
+  const radialMenu = document.getElementById("radial-menu");
+  const buttons = radialMenu.querySelectorAll(".nav-btn");
+  const radius = 200; // distance from logo
+  const centerX = 0; // center of radial-menu (top-left of container)
+  const centerY = 0;
+
+  const total = buttons.length;
+  buttons.forEach((btn, i) => {
+    const angle = (i / total) * 2 * Math.PI - Math.PI/2; // start from top
+    const x = centerX + radius * Math.cos(angle) - btn.offsetWidth/2;
+    const y = centerY + radius * Math.sin(angle) - btn.offsetHeight/2;
+
+    btn.style.left = `${centerX - btn.offsetWidth / 2}px`;
+    btn.style.top = `${centerY - btn.offsetHeight / 2}px`;
+    btn.style.opacity = 0;
+
+    setTimeout(() => {
+      btn.style.transition = "left 0.5s ease, top 0.5s ease, opacity 0.5s ease";
+      btn.style.left = `${x}px`;
+      btn.style.top = `${y}px`;
+      btn.style.opacity = 1;
+    }, 50 + i * 50); // stagger for nice effect
+  });
+}
+
+function closeRadialMenu() {
+  const radialMenu = document.getElementById("radial-menu");
+  const buttons = radialMenu.querySelectorAll(".nav-btn");
+
+  buttons.forEach((btn, i) => {
+    // Animate back to center
+    btn.style.transition = "left 0.5s ease, top 0.5s ease, opacity 0.5s ease";
+    btn.style.left = `${-btn.offsetWidth / 2}px`;
+    btn.style.top = `${-btn.offsetHeight / 2}px`;
+    btn.style.opacity = 0;
+
+    // Optional: remove inline styles after animation so re-opening works cleanly
+    btn.addEventListener("transitionend", function handler() {
+      btn.style.transition = "";
+      btn.removeEventListener("transitionend", handler);
+    });
+  });
+}
 
 function showSection(sectionId) {
   console.log(`Navigating to section: #${sectionId}`);
