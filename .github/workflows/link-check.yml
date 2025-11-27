@@ -12,10 +12,11 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v3
 
-      - name: Install Link Checker (lychee)
+      - name: Run Link Checker
         uses: lycheeverse/lychee-action@v1.9.2
         with:
-          args: "--verbose --no-progress --exclude-mail --accept 200,429 -- --exit-zero=false ."
+          args: "--verbose --no-progress --accept 200,429 ."
+          fail_on_error: true
 
       - name: Annotate broken links
         if: failure()
