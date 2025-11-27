@@ -29,7 +29,7 @@ body, html {
   }
 
   body {
-    background: url('background.jpg') center center / cover no-repeat fixed;
+    background: url('assets/background.jpg') center center / cover no-repeat fixed;
   }
 }
 
