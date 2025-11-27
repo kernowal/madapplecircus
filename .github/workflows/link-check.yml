@@ -16,7 +16,7 @@ jobs:
         uses: lycheeverse/lychee-action@v1.9.2
         with:
           args: "--verbose --no-progress --accept 200,429 ."
-          fail_on_error: true
+          fail: true
 
       - name: Annotate broken links
         if: failure()
