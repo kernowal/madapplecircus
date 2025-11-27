@@ -21,16 +21,20 @@ document.addEventListener("DOMContentLoaded", () => {
   // Handle nav link clicks
   navLinks.forEach(link => {
     link.addEventListener("click", e => {
+      const href = link.getAttribute("href");
+
+      // External links (starting with http) should NOT be handled
+      if (href.startsWith("http")) {
+        return; // Allow normal navigation
+      }
+
       e.preventDefault();
-      const targetId = link.getAttribute("href").substring(1);
-      console.log("Clicked nav link:", targetId);
+
+      const targetId = href.substring(1);
       showSection(targetId);
 
-      // Update URL without reloading
+      // Update URL
       history.pushState(null, "", `#${targetId}`);
-
-      // Optionally close the radial menu after clicking
-      radialMenu.classList.remove("open");
     });
   });
 
