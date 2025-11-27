@@ -61,6 +61,20 @@ body, html {
   transform: scale(1.1);
 }
 
+@media (max-width: 768px) {
+  .menu-logo {
+    width: 160px;
+    height: 160px;
+  }
+}
+
+@media (max-width: 480px) {
+  .menu-logo {
+    width: 100px;
+    height: 100px;
+  }
+}
+
 .radial-menu {
   position: absolute;
   top: 50%;
@@ -123,6 +137,24 @@ body, html {
   }
   to {
     opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .radial-menu .nav-btn {
+    width: 60px;       /* smaller buttons */
+    height: 60px;
+    line-height: 60px;
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .radial-menu .nav-btn {
+    width: 50px;       /* even smaller on very small phones */
+    height: 50px;
+    line-height: 50px;
+    font-size: 0.75rem;
   }
 }
 
