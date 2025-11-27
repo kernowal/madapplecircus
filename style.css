@@ -68,12 +68,6 @@ body, html {
   }
 }
 
-@media (max-width: 480px) {
-  .menu-logo {
-    width: 100px;
-    height: 100px;
-  }
-}
 
 .radial-menu {
   position: absolute;
@@ -115,13 +109,6 @@ body, html {
   transition: transform 0.5s ease, opacity 0.5s ease, background 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Animate buttons when menu opens */
-/* .radial-menu.open .nav-btn:nth-child(1) { transform: rotate(0deg) translate(180px); opacity:1; }
-.radial-menu.open .nav-btn:nth-child(2) { transform: rotate(72deg) translate(180px); opacity:1; }
-.radial-menu.open .nav-btn:nth-child(3) { transform: rotate(144deg) translate(180px); opacity:1; }
-.radial-menu.open .nav-btn:nth-child(4) { transform: rotate(216deg) translate(180px); opacity:1; }
-.radial-menu.open .nav-btn:nth-child(5) { transform: rotate(288deg) translate(180px); opacity:1; } */
-
 /* Hover effect */
 .radial-menu .nav-btn:hover {
   background: rgba(255, 255, 255, 0.3);
@@ -149,14 +136,6 @@ body, html {
   }
 }
 
-@media (max-width: 480px) {
-  .radial-menu .nav-btn {
-    width: 50px;       /* even smaller on very small phones */
-    height: 50px;
-    line-height: 50px;
-    font-size: 0.75rem;
-  }
-}
 
 .section {
   position: fixed;

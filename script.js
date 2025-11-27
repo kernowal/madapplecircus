@@ -59,7 +59,11 @@ document.addEventListener("DOMContentLoaded", () => {
 function openRadialMenu() {
   const radialMenu = document.getElementById("radial-menu");
   const buttons = radialMenu.querySelectorAll(".nav-btn");
-  const radius = 200; // distance from logo
+  let radius;
+  if (window.innerWidth <= 480) radius = 80;    // small phones
+  else if (window.innerWidth <= 768) radius = 100; // tablets
+  else radius = 140;                             // desktop
+
   const centerX = 0; // center of radial-menu (top-left of container)
   const centerY = 0;
 
