@@ -60,8 +60,8 @@ function openRadialMenu() {
   const radialMenu = document.getElementById("radial-menu");
   const buttons = radialMenu.querySelectorAll(".nav-btn");
   let radius;
-  if (window.innerWidth <= 480) radius = 125;    // small phones
-  else radius = 140;                             // desktop
+  if (window.innerWidth <= 480) radius = 140;    // small phones
+  else radius = 200;                             // desktop
 
   const centerX = 0; // center of radial-menu (top-left of container)
   const centerY = 0;
