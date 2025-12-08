@@ -23,8 +23,8 @@ document.addEventListener("DOMContentLoaded", () => {
     link.addEventListener("click", e => {
       const href = link.getAttribute("href");
 
-      // External links (starting with http) should NOT be handled
-      if (href.startsWith("http")) {
+      // Only handle relative links
+      if (!href.startsWith("#")) {
         return; // Allow normal navigation
       }
 
