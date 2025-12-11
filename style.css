@@ -3,11 +3,22 @@
   padding: 0;
   box-sizing: border-box;
 }
+
 body, html {
   height: 100%;
   font-family: 'Helvetica Neue', sans-serif;
   background: black;
   overflow: hidden;
+}
+
+#background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: url('assets/background.jpg') 50% 25% / cover no-repeat fixed;
 }
 
 #bg-video {
@@ -40,6 +51,10 @@ body, html {
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 2rem;
+  color: white;
 }
 
 .menu-container {
@@ -50,8 +65,8 @@ body, html {
 }
 
 .menu-logo {
-  width: 240px;
-  height: 240px;
+  width: 310px;
+  height: 310px;
   cursor: pointer;
   z-index: 2;
   transition: transform 0.4s ease;
@@ -68,7 +83,6 @@ body, html {
   }
 }
 
-
 .radial-menu {
   position: absolute;
   top: 50%;
@@ -78,6 +92,7 @@ body, html {
   pointer-events: none;
   z-index: 20;
 }
+
 .radial-menu.open {
   pointer-events: auto;
 }
@@ -136,12 +151,12 @@ body, html {
   }
 }
 
-
 .section {
   position: fixed;
   width: 100%;
   height: 100%;
-  top: 0; left: 0;
+  top: 0;
+  left: 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -149,24 +164,22 @@ body, html {
   opacity: 1;
   transform: scale(1);
   transition: opacity 0.6s ease, transform 0.6s ease;
+  background: url('assets/background.jpg') 50% 25% / cover no-repeat fixed;
 }
+
 .hidden {
   opacity: 0;
   pointer-events: none;
   transform: scale(0.98);
 }
-.overlay {
-  text-align: center;
-  background: rgba(0, 0, 0, 0.6);
-  padding: 2rem;
-  color: white;
-}
+
 .menu a {
   margin: 0 1rem;
   color: #fff;
   text-decoration: none;
   font-size: 1.2rem;
 }
+
 .external-link {
   color: #fff;
   background: #e63946;
@@ -175,30 +188,43 @@ body, html {
   border-radius: 4px;
   font-size: 1.4rem;
 }
+
 h2 {
   color: #fff;
   margin-bottom: 1rem;
 }
+
 ul {
   list-style: none;
   text-align: left;
   color: #fff;
 }
+
 ul li {
   margin: 0.5rem 0;
 }
+
+.form-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%
+}
+
 form {
   display: flex;
   flex-direction: column;
   width: 80%;
   max-width: 400px;
 }
+
 input, textarea {
   padding: 0.75rem;
   margin: 0.5rem 0;
   border: none;
   border-radius: 4px;
 }
+
 button {
   padding: 0.75rem;
   background: #e63946;
@@ -207,16 +233,26 @@ button {
   border-radius: 4px;
   cursor: pointer;
 }
+
 .close-btn {
   position: absolute;
   top: 1rem;
   right: 1rem;
-  background: none;
-  border: none;
-  font-size: 2rem;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.15); /* semi-transparent circle */
+  border: 2px solid white;
+  border-radius: 50%;
+  font-size: 2rem; /* balance inside the circle */
+  padding: 0 0 5px 0;
   color: white;
   cursor: pointer;
+  backdrop-filter: blur(2px); /* optional: frosted look */
 }
+
 .modal {
   position: fixed;
   top: 0;
@@ -256,12 +292,14 @@ button {
 .social-icon:hover {
   opacity: 1;
 }
+
 footer {
   position: fixed;
   bottom: 1rem;
   width: 100%;
   text-align: center;
 }
+
 footer a img {
   margin: 0 0.5rem;
   filter: brightness(1) invert(1);
