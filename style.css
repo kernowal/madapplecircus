@@ -18,119 +18,124 @@ body, html {
   width: 100%;
   height: 100%;
   z-index: -1;
-  background: url('assets/background.jpg') 50% 25% / cover no-repeat fixed;
+  background: url('assets/background_colour.jpg') 50% 30% / cover no-repeat fixed;
 }
 
-#bg-video {
-  position: fixed;
-  top: 0;
-  left: 0;
-  min-width: 100%;
-  min-height: 100%;
-  width: auto;
-  height: auto;
-  z-index: -1;
-  object-fit: cover;
-  background-color: black; /* fallback */
-}
-
-@media (max-width: 20%) {
-  #bg-video {
-    display: none;
-  }
-
-  body {
-    background: url('assets/background.jpg') center center / cover no-repeat fixed;
-  }
-}
-
+/* --- Logo --- */
 .overlay {
-  position: relative;
   height: 100vh;
   width: 100%;
   display: flex;
   justify-content: center;
-  align-items: center;
-  text-align: center;
   background: rgba(0, 0, 0, 0.6);
-  padding: 2rem;
-  color: white;
-}
-
-.menu-container {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .menu-logo {
-  width: 310px;
-  height: 310px;
+  width: 450px;
+  height: 450px;
+}
+
+.logo-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+/* Side navigation */
+.sidenav {
+  width: auto;
+  height: 100vh;
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  right: 0;
+  position: fixed;
+  background-color: rgba(0,0,0,0.7);
+}
+
+.sidenav a {
+  color: #E89D02;
+  text-decoration: none;
+  font-size: 22px;
+}
+
+.sidenav a:hover {
+  text-decoration: underline;
+}
+
+/* ---------- Burger ---------- */
+.burger {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 11;
+  background: none;
+  border: none;
   cursor: pointer;
-  z-index: 2;
-  transition: transform 0.4s ease;
+  flex-direction: column;
+  gap: 5px;
 }
 
-.menu-logo:hover {
-  transform: scale(1.1);
+.burger span {
+  width: 26px;
+  height: 3px;
+  background: #E89D02;
+  transition: 0.3s;
 }
 
-@media (max-width: 480px) {
+/* ---------- Mobile ---------- */
+@media (max-width: 768px) {
+  body {
+    display: block;
+  }
+
+  .burger {
+    display: flex;
+  }
+
+  .sidenav {
+    position: fixed;
+    transition: transform 0.3s ease;
+    z-index: 10;
+    transform: translateX(100%);
+    padding: 4rem 1.5rem;
+  }
+
+  .sidenav.open {
+    transform: translateX(0);
+    transition: transform 0.3s ease;
+  }
+
+  .content {
+    padding-top: 4rem;
+  }
+
+  /* Burger animation */
+  .burger.open span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  .burger.open span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .burger.open span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
   .menu-logo {
-    width: 160px;
-    height: 160px;
+    width: 300px;
+    height: 300px;
   }
 }
 
-.radial-menu {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 0;
-  height: 0;
-  pointer-events: none;
-  z-index: 20;
+/* -------- Smaller screen -------- */
+@media (max-width: 550px) {
+  .menu-logo {
+    width: 200px;
+    height: 200px;
+  }
 }
-
-.radial-menu.open {
-  pointer-events: auto;
-}
-
-/* Buttons hidden by default */
-.radial-menu .nav-btn {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  line-height: normal;
-  font-size: 1rem;
-  font-weight: 600;
-  text-decoration: none;
-  color: #fff;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(5px);
-  border: 2px solid rgba(255, 255, 255, 0.4);
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
-  transform-origin: center center;
-  transform: rotate(0deg) translate(0) rotate(0deg);
-  opacity: 0;
-  transition: transform 0.5s ease, opacity 0.5s ease, background 0.3s ease, box-shadow 0.3s ease;
-}
-
-/* Hover effect */
-.radial-menu .nav-btn:hover {
-  background: rgba(255, 255, 255, 0.3);
-  box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
-  transform: scale(1.15);
-}
-
 /* Add a pop-out animation */
 @keyframes flyOut {
   from {
@@ -142,14 +147,6 @@ body, html {
   }
 }
 
-@media (max-width: 480px) {
-  .radial-menu .nav-btn {
-    width: 60px;       /* smaller buttons */
-    height: 60px;
-    line-height: 60px;
-    font-size: 0.85rem;
-  }
-}
 
 .section {
   position: fixed;
@@ -164,7 +161,7 @@ body, html {
   opacity: 1;
   transform: scale(1);
   transition: opacity 0.6s ease, transform 0.6s ease;
-  background: url('assets/background.jpg') 50% 25% / cover no-repeat fixed;
+  background: url('assets/background.jpg') 50% 30% / cover no-repeat fixed;
 }
 
 .hidden {
@@ -206,6 +203,7 @@ ul li {
 
 .form-wrapper {
   display: flex;
+  justify-content: center;
   flex-direction: column;
   align-items: center;
   width: 100%
@@ -227,30 +225,23 @@ input, textarea {
 
 button {
   padding: 0.75rem;
-  background: #e63946;
   color: #fff;
   border: none;
   border-radius: 4px;
   cursor: pointer;
+
 }
 
-.close-btn {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(255, 255, 255, 0.15); /* semi-transparent circle */
-  border: 2px solid white;
-  border-radius: 50%;
-  font-size: 2rem; /* balance inside the circle */
-  padding: 0 0 5px 0;
-  color: white;
+.cancel-btn {
+  background: rgba(0,0,0,0.8);
+  color: #e89d02;
+  border: 2px solid #e89d02;
+  border-radius: 4px;
   cursor: pointer;
-  backdrop-filter: blur(2px); /* optional: frosted look */
+  margin: 0.5rem 0;
+  padding: 0.75rem;
+  font-size: 16px;
+  font-weight: bold;
 }
 
 .modal {
@@ -273,10 +264,11 @@ button {
 .modal .button {
   margin-top: 1.5rem;
   padding: 0.75rem 1.5rem;
-  background-color: #ff4081;
+  background-color: #e89d02;
   border: none;
   color: white;
   text-decoration: none;
+  font-size: 16px;
   font-weight: bold;
   border-radius: 5px;
 }
@@ -291,6 +283,18 @@ button {
 
 .social-icon:hover {
   opacity: 1;
+  color: #E89D02;
+}
+
+.submit {
+  background: rgb(232, 157, 2);
+  margin: 0.5rem 0;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.bird-img {
+  width: 130px;
 }
 
 footer {
@@ -300,9 +304,18 @@ footer {
   text-align: center;
 }
 
+footer a {
+  text-decoration: none;
+}
+
 footer a img {
   margin: 0 0.5rem;
   filter: brightness(1) invert(1);
+}
+
+footer a:hover .social-icon {
+  filter: invert(64%) sepia(92%) saturate(748%) hue-rotate(358deg) brightness(97%) contrast(103%);
+  transform: scale(1.1);
 }
 
 /* 
@@ -310,7 +323,7 @@ BLACK #000000
 WHITE #FFFFFF
 TEAL #308577
 PALE BLUE #6BCCC1
-ORANGE #E89D02
+ORANGE #E89D02 232 157 2
 PINK #E35B70
 RED #C53C54
 */

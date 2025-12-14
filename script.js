@@ -3,20 +3,7 @@ const sections = document.querySelectorAll(".section");
 document.addEventListener("DOMContentLoaded", () => {
   console.log("Script loaded and DOM fully parsed");
 
-  const logo = document.getElementById("menu-logo");
-  const radialMenu = document.getElementById("radial-menu");
   const navLinks = document.querySelectorAll(".nav-btn"); // moved inside
-
-  // Toggle radial menu visibility
-  logo.addEventListener("click", () => {
-    radialMenu.classList.toggle("open");
-    console.log("Menu toggled:", radialMenu.classList.contains("open"));
-    if(radialMenu.classList.contains("open")){
-      openRadialMenu();
-    } else {
-      closeRadialMenu();
-    }
-  });
 
   // Handle nav link clicks
   navLinks.forEach(link => {
@@ -55,54 +42,6 @@ document.addEventListener("DOMContentLoaded", () => {
     showSection("home");
   }
 });
-
-function openRadialMenu() {
-  const radialMenu = document.getElementById("radial-menu");
-  const buttons = radialMenu.querySelectorAll(".nav-btn");
-  let radius;
-  if (window.innerWidth <= 480) radius = 140;    // small phones
-  else radius = 220;                             // desktop
-
-  const centerX = 0; // center of radial-menu (top-left of container)
-  const centerY = 0;
-
-  const total = buttons.length;
-  buttons.forEach((btn, i) => {
-    const angle = (i / total) * 2 * Math.PI - Math.PI/2; // start from top
-    const x = centerX + radius * Math.cos(angle) - btn.offsetWidth/2;
-    const y = centerY + radius * Math.sin(angle) - btn.offsetHeight/2;
-
-    btn.style.left = `${centerX - btn.offsetWidth / 2}px`;
-    btn.style.top = `${centerY - btn.offsetHeight / 2}px`;
-    btn.style.opacity = 0;
-
-    setTimeout(() => {
-      btn.style.transition = "left 0.5s ease, top 0.5s ease, opacity 0.5s ease";
-      btn.style.left = `${x}px`;
-      btn.style.top = `${y}px`;
-      btn.style.opacity = 1;
-    }, 50 + i * 50); // stagger for nice effect
-  });
-}
-
-function closeRadialMenu() {
-  const radialMenu = document.getElementById("radial-menu");
-  const buttons = radialMenu.querySelectorAll(".nav-btn");
-
-  buttons.forEach((btn, i) => {
-    // Animate back to center
-    btn.style.transition = "left 0.5s ease, top 0.5s ease, opacity 0.5s ease";
-    btn.style.left = `${-btn.offsetWidth / 2}px`;
-    btn.style.top = `${-btn.offsetHeight / 2}px`;
-    btn.style.opacity = 0;
-
-    // Optional: remove inline styles after animation so re-opening works cleanly
-    btn.addEventListener("transitionend", function handler() {
-      btn.style.transition = "";
-      btn.removeEventListener("transitionend", handler);
-    });
-  });
-}
 
 function showSection(sectionId) {
   console.log(`Navigating to section: #${sectionId}`);
@@ -189,5 +128,22 @@ document.getElementById('hidden_iframe').addEventListener('load', function() {
     submitBtn.textContent = "Subscribe";
     closeSection('signup', false);
     document.getElementById('signup-success-modal').classList.remove('hidden');
+  }
+});
+
+const burger = document.getElementById('burger');
+const sidenav = document.getElementById('sidenav');
+
+burger.addEventListener('click', () => {
+  const isOpen = sidenav.classList.toggle('open');
+  burger.classList.toggle('open', isOpen);
+  burger.setAttribute('aria-expanded', isOpen);
+});
+
+window.addEventListener('resize', () => {
+  if (window.innerWidth > 768) {
+    sidenav.classList.remove('open');
+    burger.classList.remove('open');
+    burger.setAttribute('aria-expanded', false);
   }
 });

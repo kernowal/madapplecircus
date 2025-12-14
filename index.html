@@ -24,24 +24,37 @@
 
   gtag('config', 'G-076LPQ12GX');
 </script>
+
 <body>
+  
   <div class="section" id="home" aria-label="Home Section">
-    <!-- <div class="background" id="background"></div> -->
-    <video autoplay muted loop playsinline id="bg-video" poster="assets/background.jpg">
+    <div class="background" id="background"></div>
+    <!-- <video autoplay muted loop playsinline id="bg-video" poster="assets/background.jpg">
       <source src="assets/background-video.webm" type="video/webm">
       Your browser does not support the video tag.
-    </video>
+    </video> -->
     <div class="overlay">
-      <div class="menu-container">
+      <div class="logo-wrapper" id="logo-wrapper">
         <img src="assets/mac-logo.png" alt="Mad Apple Circus Logo" class="menu-logo" id="menu-logo">
-        <nav class="radial-menu" id="radial-menu" aria-label="Main Menu">
-          <a href="assets/MAD_APPLE_CIRCUS_PRESS_PACK_2026.pdf" class="nav-btn" aria-label="About">About</a>
-          <a href="#contact" class="nav-btn" aria-label="Contact">Contact</a>
-          <a href="https://www.bandsintown.com/a/1832686-mad-apple-circus" target="_blank" rel="noopener noreferrer" class="nav-btn" aria-label="Gigs">Live</a>
-          <a href="#signup" class="nav-btn" aria-label="Sign Up">Mailing</a>
-          <a href="https://madapplecircus.myshopify.com" target="_blank" rel="noopener noreferrer" class="nav-btn" aria-label="Shop">Shop</a>
-        </nav>
       </div>
+      <button
+        class="burger"
+        id="burger"
+        aria-label="Toggle navigation"
+        aria-expanded="false"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="sidenav" id="sidenav" aria-label="Main navigation">
+        <a href="assets/MAD_APPLE_CIRCUS_PRESS_PACK_2026.pdf" target="_blank" rel="noopener noreferrer" class="nav-btn" aria-label="About">About</a>
+        <a href="#contact" class="nav-btn" aria-label="Contact">Contact</a>
+        <a href="https://www.bandsintown.com/a/1832686-mad-apple-circus" target="_blank" rel="noopener noreferrer" class="nav-btn" aria-label="Gigs">Live</a>
+        <a href="#signup" class="nav-btn" aria-label="Sign Up">Mailing</a>
+        <a href="https://madapplecircus.myshopify.com" target="_blank" rel="noopener noreferrer" class="nav-btn" aria-label="Shop">Shop</a>
+      </nav>
     </div>
   </div>
 
@@ -50,7 +63,6 @@
     <div class="overlay">
       <div class="form-wrapper">
         <h2>Join Our Mailing List</h2>
-        <button class="close-btn" onclick="closeSection('signup')">&times;</button>
         <form 
           id="mailing-list-form"
           action="https://docs.google.com/forms/d/e/1FAIpQLSdMETAo1ntsKLBAlCjsyjlMEvSxMEdXthnOczAkY-IeJ3cslg/formResponse"
@@ -67,7 +79,8 @@
           <!-- Honeypot field -->
           <input type="text" name="company" id="honeypot" style="display:none" tabindex="-1" autocomplete="off">
 
-          <button type="submit">Subscribe</button>
+          <button type="submit" class="submit">Subscribe</button>
+          <button onclick="closeSection('signup')" class="cancel-btn">Cancel</button>
         </form>
         <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
       </div>
@@ -75,17 +88,16 @@
   </div>
   
   <div class="section hidden modal" id="signup-success-modal" aria-label="Signup Success Modal">
-    <h2>🎉 Thank You!</h2>
+    <img src="assets/bird.png" alt="Mad Apple Circus Bird" class="bird-img" id="bird-img"></img>
+    <h2>Thank You!</h2>
     <p>You have been added to our mailing list. See you in the fields</p>
-    <a class="button" onclick="closeSection('signup-success-modal')">Back to Home</a>
-    <button class="close-btn" onclick="closeSection('signup-success-modal')">&times;</button>
+    <a class="submit button" onclick="closeSection('signup-success-modal')">Back to Home</a>
   </div>
 
   <div class="section hidden" id="contact" aria-label="Contact Form Section">
     <div class="overlay">
       <div class="form-wrapper">
         <h2>Contact / Booking</h2>
-        <button class="close-btn" onclick="closeSection('contact')">&times;</button>
         <form action="https://formsubmit.co/ajax/2706faac08f144e7378fc909b579c3ac" method="POST">
           <!-- <label for="name">Name</label> -->
           <input type="text" name="name" id="name" placeholder="Your name" required />
@@ -105,16 +117,17 @@
           <input type="hidden" name="_captcha" value="true">
           <input type="hidden" name="_template" value="box">
         
-          <button type="submit">Send Message</button>
+          <button type="submit" class="submit">Send Message</button>
+          <button onclick="closeSection('contact')" class="cancel-btn">Cancel</button>
         </form>
       </div> 
     </div>
   </div>
   <div class="section hidden modal" id="thank-you-modal" aria-label="Thank You Modal">
-    <h2>🎉 Thank You!</h2>
+    <img src="assets/bird.png" alt="Mad Apple Circus Bird" class="bird-img" id="bird-img"></img>
+    <h2>Thank You!</h2>
     <p>Your message has been sent. We'll get back to you as soon as we can.</p>
-    <a class="button" onclick="closeSection('thank-you-modal')">Back to Home</a>
-    <button class="close-btn" onclick="closeSection('thank-you-modal')">&times;</button>
+    <a class="submit button" onclick="closeSection('thank-you-modal')">Back to Home</a>
   </div>
 
   <footer>
