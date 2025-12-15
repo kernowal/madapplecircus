@@ -106,29 +106,45 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-function handleSubmit() {
-  const honeypot = document.getElementById("honeypot").value;
+function handleSubmit(id) {
+  const honeypot = document.getElementById(id+"-honeypot").value;
   if (honeypot !== "") return false; // bot
 
-  const submitBtn = document.querySelector("#mailing-list-form button");
+  const submitBtn = document.getElementById(id+"-btn")
   submitBtn.disabled = true;
-  submitBtn.textContent = "Submitting...";
+  submitBtn.textContent = "SUBMITTING...";
 
   // Submission handled in iframe
   return true;
 }
 
-document.getElementById('hidden_iframe').addEventListener('load', function() {
+document.getElementById('signup_hidden_iframe').addEventListener('load', function() {
   const form = document.getElementById('mailing-list-form');
-  const name = form.querySelector("#name").value;
-  const email = form.querySelector("#email").value;
-  if (name !== "" & email != "") {
+  const name = form.querySelector("#signup-name").value;
+  const email = form.querySelector("#signup-email").value;
+  if (name !== "" && email != "") {
     form.reset();
     const submitBtn = form.querySelector("button[type='submit']");
     submitBtn.disabled = false;
-    submitBtn.textContent = "Subscribe";
+    submitBtn.textContent = "SUBSCRIBE";
     closeSection('signup', false);
     document.getElementById('signup-success-modal').classList.remove('hidden');
+  }
+});
+
+document.getElementById('contact_hidden_iframe').addEventListener('load', function() {
+  const form = document.getElementById('contact-form');
+  const name = form.querySelector("#contact-name").value;
+  const email = form.querySelector("#contact-email").value;
+  const message = form.querySelector("#contact-message").value;
+
+  if (name !== "" && email != "" && message != "") {
+    form.reset();
+    const submitBtn = form.querySelector("button[type='submit']");
+    submitBtn.disabled = false;
+    submitBtn.textContent = "SEND MESSAGE";
+    closeSection('contact', false);
+    document.getElementById('thank-you-modal').classList.remove('hidden');
   }
 });
 
@@ -146,12 +162,14 @@ burger.addEventListener('click', () => {
 function hideForm(id) {
   const container = document.getElementById(id);
   const form = container.querySelector('form');
-  form.reset();
-
+  
+  if (form) {
+    form.reset();
+    // Disable all form controls
+    [...form.elements].forEach(el => el.disabled = true);
+  }
+  
   container.style.display = 'none';
-
-  // Disable all form controls
-  [...form.elements].forEach(el => el.disabled = true);
 }
 
 function showForm(id) {

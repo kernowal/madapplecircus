@@ -70,67 +70,71 @@
           id="mailing-list-form"
           action="https://docs.google.com/forms/d/e/1FAIpQLSdMETAo1ntsKLBAlCjsyjlMEvSxMEdXthnOczAkY-IeJ3cslg/formResponse"
           method="POST"
-          target="hidden_iframe"
-          onsubmit="return handleSubmit();"
+          target="signup_hidden_iframe"
+          onsubmit="return handleSubmit('signup');"
         >
           <!-- <label for="name">Name</label> -->
-          <input type="text" name="entry.220873809" id="name" placeholder="Your name" required pattern="[A-Za-z\s]{2,50}" >
+          <input type="text" name="entry.220873809" id="signup-name" placeholder="Your name" required pattern="[A-Za-z\s]{2,50}" >
 
           <!-- <label for="email">Email</label>  -->
-          <input type="email" name="entry.1653716162" id="email" placeholder="Your email" required>
+          <input type="email" name="entry.1653716162" id="signup-email" placeholder="Your email" required>
 
           <!-- Honeypot field -->
-          <input type="text" name="company" id="honeypot" style="display:none" tabindex="-1" autocomplete="off">
+          <input type="text" name="company" id="signup-honeypot" style="display:none" tabindex="-1" autocomplete="off">
 
-          <button type="submit" class="submit">SUBSCRIBE</button>
+          <button type="submit" class="submit" id="signup-btn">SUBSCRIBE</button>
           <button onclick="closeSection('signup')" class="cancel-btn">CANCEL</button>
         </form>
-        <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
+        <iframe name="signup_hidden_iframe" id="signup_hidden_iframe" style="display:none;"></iframe>
       </div>
     </div>
   </div>
   
-  <div class="section hidden" id="signup-success-modal" aria-label="Signup Success Modal">
+  <div class="section hidden modal" id="signup-success-modal" aria-label="Signup Success Modal">
     <img src="assets/bird.png" alt="Mad Apple Circus Bird" class="bird-img" id="bird-img"></img>
-    <h2>Thank You!</h2>
-    <p>You have been added to our mailing list. See you in the fields</p>
-    <a class="submit button" onclick="closeSection('signup-success-modal')">Back to Home</a>
+    <h2>THANK YOU!</h2>
+    <p>YOU HAVE BEEN ADDED TO OUR MAILING LIST. SEE YOU IN THE FIELDS!</p>
+    <button class="submit" onclick="closeSection('signup-success-modal')">BACK TO HOME</button>
   </div>
 
   <div class="section hidden" id="contact" aria-label="Contact Form Section">
     <div class="overlay">
-      <div class="form-wrapper" id="contact-form">
+      <div class="form-wrapper" id="contact-form-wrapper">
         <h2>CONTACT / BOOKING</h2>
-        <form action="https://formsubmit.co/ajax/2706faac08f144e7378fc909b579c3ac" method="POST">
+        <form
+          id="contact-form"
+          action="https://formsubmit.co/ajax/2706faac08f144e7378fc909b579c3ac"
+          method="POST"
+          target="contact_hidden_iframe"
+          onsubmit="return handleSubmit('contact');"
+        >
           <!-- <label for="name">Name</label> -->
-          <input type="text" name="name" id="name" placeholder="Your name" required />
+          <input type="text" name="name" id="contact-name" placeholder="Your name" required />
         
           <!-- <label for="replyto">Email</label> -->
-          <input type="email" name="email" id="replyto" placeholder="Your email" required />
+          <input type="email" name="email" id="contact-email" placeholder="Your email" required />
         
           <!-- <label for="message">Message</label> -->
-          <textarea name="message" id="message" rows="4" placeholder="Your message" required minlength="50"></textarea>
+          <textarea name="message" id="contact-message" rows="4" placeholder="Your message" required minlength="50"></textarea>
           
           <!-- Honeypot field to trap bots -->
-          <div style="display: none;">
-            <label>Leave this field empty</label>
-            <input type="text" name="_honey">
-          </div>
+          <input type="text" name="company" id="contact-honeypot" style="display:none" tabindex="-1" autocomplete="off">
 
           <input type="hidden" name="_captcha" value="true">
           <input type="hidden" name="_template" value="box">
         
-          <button type="submit" class="submit">SEND MESSAGE</button>
+          <button type="submit" class="submit" id="contact-btn">SEND MESSAGE</button>
           <button onclick="closeSection('contact')" class="cancel-btn">CANCEL</button>
         </form>
+        <iframe name="contact_hidden_iframe" id="contact_hidden_iframe" style="display:none;"></iframe>
       </div> 
     </div>
   </div>
-  <div class="section hidden" id="thank-you-modal" aria-label="Thank You Modal">
+  <div class="section hidden modal" id="thank-you-modal" aria-label="Thank You Modal">
     <img src="assets/bird.png" alt="Mad Apple Circus Bird" class="bird-img" id="bird-img"></img>
-    <h2>Thank You!</h2>
-    <p>Your message has been sent. We'll get back to you as soon as we can.</p>
-    <a class="submit button" onclick="closeSection('thank-you-modal')">Back to Home</a>
+    <h2>THANK YOU!</h2>
+    <p>YOUR MESSAGE HAS BEEN SENT. WE'LL GET BACK TO YOU AS SOON AS WE CAN.</p>
+    <button class="submit" onclick="closeSection('thank-you-modal')">BACK TO HOME</button>
   </div>
 
   <footer>
