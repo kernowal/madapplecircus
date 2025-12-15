@@ -86,10 +86,6 @@ body, html {
 
 /* ---------- Mobile ---------- */
 @media (max-width: 768px) {
-  body {
-    display: block;
-  }
-
   .burger {
     display: flex;
   }

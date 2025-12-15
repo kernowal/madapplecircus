@@ -78,6 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function closeSection(id) {
   document.getElementById(id).classList.add("hidden");
+  hideForm(id+"-form");
   showSection("home");
   history.pushState(null, "", "#home");
 }
@@ -150,3 +151,24 @@ window.addEventListener('resize', () => {
     burger.setAttribute('aria-expanded', false);
   }
 });
+
+function hideForm(id) {
+  const container = document.getElementById(id);
+  const form = container.querySelector('form');
+  form.reset();
+
+  container.style.display = 'none';
+
+  // Disable all form controls
+  [...form.elements].forEach(el => el.disabled = true);
+}
+
+function showForm(id) {
+  const container = document.getElementById(id);
+  const form = container.querySelector('form');
+
+  container.style.display = 'flex';
+
+  // Re-enable controls
+  [...form.elements].forEach(el => el.disabled = false);
+}
