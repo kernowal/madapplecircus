@@ -133,10 +133,12 @@ document.getElementById('hidden_iframe').addEventListener('load', function() {
 
 const burger = document.getElementById('burger');
 const sidenav = document.getElementById('sidenav');
+const logo = document.getElementById('mac-logo');
 
 burger.addEventListener('click', () => {
   const isOpen = sidenav.classList.toggle('open');
   burger.classList.toggle('open', isOpen);
+  logo.classList.toggle('nav-open', isOpen);
   burger.setAttribute('aria-expanded', isOpen);
 });
 
@@ -144,6 +146,7 @@ window.addEventListener('resize', () => {
   if (window.innerWidth > 768) {
     sidenav.classList.remove('open');
     burger.classList.remove('open');
+    logo.classList.remove('nav-open');
     burger.setAttribute('aria-expanded', false);
   }
 });

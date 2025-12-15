@@ -30,9 +30,10 @@ body, html {
   background: rgba(0, 0, 0, 0.6);
 }
 
-.menu-logo {
+.mac-logo {
   width: 450px;
   height: 450px;
+  transition: transform 0.3s ease;
 }
 
 .logo-wrapper {
@@ -123,15 +124,20 @@ body, html {
     transform: translateY(-8px) rotate(-45deg);
   }
 
-  .menu-logo {
+  .mac-logo {
     width: 300px;
     height: 300px;
+  }
+
+  .mac-logo.nav-open {
+    transform: translateX(-65px);
+    transition: transform 0.3s ease;
   }
 }
 
 /* -------- Smaller screen -------- */
 @media (max-width: 550px) {
-  .menu-logo {
+  .mac-logo {
     width: 200px;
     height: 200px;
   }
