@@ -143,15 +143,6 @@ burger.addEventListener('click', () => {
   burger.setAttribute('aria-expanded', isOpen);
 });
 
-window.addEventListener('resize', () => {
-  if (window.innerWidth > 768) {
-    sidenav.classList.remove('open');
-    burger.classList.remove('open');
-    logo.classList.remove('nav-open');
-    burger.setAttribute('aria-expanded', false);
-  }
-});
-
 function hideForm(id) {
   const container = document.getElementById(id);
   const form = container.querySelector('form');

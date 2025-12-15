@@ -14,6 +14,9 @@
   <meta property="og:url" content="https://madapplecircus.com" />
   <link rel="icon" href="favicon.ico"/>
   <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=League+Gothic&display=swap" rel="stylesheet">
 </head>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-076LPQ12GX"></script>
@@ -49,11 +52,11 @@
       </button>
 
       <nav class="sidenav" id="sidenav" aria-label="Main navigation">
-        <a href="assets/MAD_APPLE_CIRCUS_PRESS_PACK_2026.pdf" target="_blank" rel="noopener noreferrer" class="nav-btn" aria-label="About">About</a>
-        <a href="https://madapplecircus.myshopify.com" target="_blank" rel="noopener noreferrer" class="nav-btn" aria-label="Shop">Shop</a>
-        <a href="https://www.bandsintown.com/a/1832686-mad-apple-circus" target="_blank" rel="noopener noreferrer" class="nav-btn" aria-label="Gigs">Live</a>
-        <a href="#signup" class="nav-btn" aria-label="Sign Up" onclick="showForm('signup-form')">Mailing List</a>
-        <a href="#contact" class="nav-btn" aria-label="Contact" onclick="showForm('contact-form')">Contact</a>
+        <a href="assets/MAD_APPLE_CIRCUS_PRESS_PACK_2026.pdf" target="_blank" rel="noopener noreferrer" class="nav-btn" aria-label="About">ABOUT</a>
+        <a href="https://madapplecircus.myshopify.com" target="_blank" rel="noopener noreferrer" class="nav-btn" aria-label="Shop">SHOP</a>
+        <a href="https://www.bandsintown.com/a/1832686-mad-apple-circus" target="_blank" rel="noopener noreferrer" class="nav-btn" aria-label="Gigs">LIVE</a>
+        <a href="#signup" class="nav-btn" aria-label="Sign Up" onclick="showForm('signup-form')">MAILING LIST</a>
+        <a href="#contact" class="nav-btn" aria-label="Contact" onclick="showForm('contact-form')">CONTACT</a>
       </nav>
     </div>
   </div>
@@ -62,7 +65,7 @@
   <div class="section hidden" id="signup" aria-label="Mailing List Signup">
     <div class="overlay">
       <div class="form-wrapper" id="signup-form">
-        <h2>Join Our Mailing List</h2>
+        <h2>Be the first to know about new music, upcoming shows and band updates</h2>
         <form 
           id="mailing-list-form"
           action="https://docs.google.com/forms/d/e/1FAIpQLSdMETAo1ntsKLBAlCjsyjlMEvSxMEdXthnOczAkY-IeJ3cslg/formResponse"
@@ -79,15 +82,15 @@
           <!-- Honeypot field -->
           <input type="text" name="company" id="honeypot" style="display:none" tabindex="-1" autocomplete="off">
 
-          <button type="submit" class="submit">Subscribe</button>
-          <button onclick="closeSection('signup')" class="cancel-btn">Cancel</button>
+          <button type="submit" class="submit">SUBSCRIBE</button>
+          <button onclick="closeSection('signup')" class="cancel-btn">CANCEL</button>
         </form>
         <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
       </div>
     </div>
   </div>
   
-  <div class="section hidden modal" id="signup-success-modal" aria-label="Signup Success Modal">
+  <div class="section hidden" id="signup-success-modal" aria-label="Signup Success Modal">
     <img src="assets/bird.png" alt="Mad Apple Circus Bird" class="bird-img" id="bird-img"></img>
     <h2>Thank You!</h2>
     <p>You have been added to our mailing list. See you in the fields</p>
@@ -97,7 +100,7 @@
   <div class="section hidden" id="contact" aria-label="Contact Form Section">
     <div class="overlay">
       <div class="form-wrapper" id="contact-form">
-        <h2>Contact / Booking</h2>
+        <h2>CONTACT / BOOKING</h2>
         <form action="https://formsubmit.co/ajax/2706faac08f144e7378fc909b579c3ac" method="POST">
           <!-- <label for="name">Name</label> -->
           <input type="text" name="name" id="name" placeholder="Your name" required />
@@ -117,13 +120,13 @@
           <input type="hidden" name="_captcha" value="true">
           <input type="hidden" name="_template" value="box">
         
-          <button type="submit" class="submit">Send Message</button>
-          <button onclick="closeSection('contact')" class="cancel-btn">Cancel</button>
+          <button type="submit" class="submit">SEND MESSAGE</button>
+          <button onclick="closeSection('contact')" class="cancel-btn">CANCEL</button>
         </form>
       </div> 
     </div>
   </div>
-  <div class="section hidden modal" id="thank-you-modal" aria-label="Thank You Modal">
+  <div class="section hidden" id="thank-you-modal" aria-label="Thank You Modal">
     <img src="assets/bird.png" alt="Mad Apple Circus Bird" class="bird-img" id="bird-img"></img>
     <h2>Thank You!</h2>
     <p>Your message has been sent. We'll get back to you as soon as we can.</p>
@@ -137,7 +140,7 @@
     <a href="https://music.apple.com/gb/artist/mad-apple-circus/493374911" target="_blank" aria-label="Apple Music">
       <img src="assets/applemusic-icon.svg" alt="Apple Music" width="36" height="36" class="social-icon" />
     </a>
-    <a href="https://youtube.com/madapplecircus" target="_blank" aria-label="YouTube">
+    <a href="https://www.youtube.com/@madapplecircus/videos" target="_blank" aria-label="YouTube">
       <img src="assets/youtube-icon.svg" alt="YouTube" width="36" height="36" class="social-icon" />
     </a>
     <a href="https://instagram.com/madapplecircus" target="_blank" aria-label="Instagram">
