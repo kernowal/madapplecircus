@@ -103,19 +103,14 @@
         <h2>CONTACT / BOOKING</h2>
         <form
           id="contact-form"
-          action="https://formsubmit.co/ajax/2706faac08f144e7378fc909b579c3ac"
+          action="https://docs.google.com/forms/d/e/1FAIpQLSffo6oBHGOUbzGC7baOXfdyrEW0T-8wIImQU7Q7TkbFaneFVw/formResponse"
           method="POST"
           target="contact_hidden_iframe"
-          onsubmit="return handleSubmit('contact');"
+          onsubmit="return handleContactSubmit();"
         >
-          <!-- <label for="name">Name</label> -->
-          <input type="text" name="name" id="contact-name" placeholder="Your name" required />
-        
-          <!-- <label for="replyto">Email</label> -->
-          <input type="email" name="email" id="contact-email" placeholder="Your email" required />
-        
-          <!-- <label for="message">Message</label> -->
-          <textarea name="message" id="contact-message" rows="4" placeholder="Your message" required minlength="50"></textarea>
+          <input type="text" name="entry.1396552593" id="contact-name" placeholder="Your name" required />
+          <input type="email" name="entry.651070904" id="contact-email" placeholder="Your email" required />
+          <textarea name="entry.1968543940" id="contact-message" rows="4" placeholder="Your message" required minlength="50"></textarea>
           
           <!-- Honeypot field to trap bots -->
           <input type="text" name="company" id="contact-honeypot" style="display:none" tabindex="-1" autocomplete="off">

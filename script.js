@@ -118,6 +118,51 @@ function handleSubmit(id) {
   return true;
 }
 
+function handleContactSubmit() {
+  const form = document.getElementById('contact-form');
+  const honeypot = document.getElementById('contact-honeypot').value;
+  if (honeypot !== "") return false; // bot
+
+  const submitBtn = document.getElementById('contact-btn');
+  submitBtn.disabled = true;
+  submitBtn.textContent = "SUBMITTING...";
+
+  // Send via Apps Script
+  const formData = new FormData();
+  formData.append("formType", "contact");
+  formData.append("name", form.querySelector("#contact-name").value);
+  formData.append("email", form.querySelector("#contact-email").value);
+  formData.append("message", form.querySelector("#contact-message").value);
+  formData.append("company", honeypot);
+
+  fetch("https://script.google.com/macros/s/AKfycbxxsAyFrKfDfSxWcTsGsaSO8ozHkZMUVkIsJqmnmqW0XciLhJTXEui6YtuX53MJIWCY/exec", {
+    method: 'POST',
+    body: formData
+  })
+  .then(res => res.json())
+  .then(data => {
+    if (data.success) {
+      form.reset();
+      submitBtn.disabled = false;
+      submitBtn.textContent = "SEND MESSAGE";
+      closeSection('contact', false);
+      document.getElementById('thank-you-modal').classList.remove('hidden');
+    } else {
+      alert("Submission failed. Please try again or contact us at madapplecircus@gmail.com.");
+      submitBtn.disabled = false;
+      submitBtn.textContent = "SEND MESSAGE";
+    }
+  })
+  .catch(err => {
+    alert("An error occurred. Please try again or contact us at madapplecircus@gmail.com.");
+    submitBtn.disabled = false;
+    submitBtn.textContent = "SEND MESSAGE";
+    console.error(err);
+  });
+
+  return false; // prevent normal form submission
+}
+
 document.getElementById('signup_hidden_iframe').addEventListener('load', function() {
   const form = document.getElementById('mailing-list-form');
   const name = form.querySelector("#signup-name").value;
@@ -132,27 +177,11 @@ document.getElementById('signup_hidden_iframe').addEventListener('load', functio
   }
 });
 
-document.getElementById('contact_hidden_iframe').addEventListener('load', function() {
-  const form = document.getElementById('contact-form');
-  const name = form.querySelector("#contact-name").value;
-  const email = form.querySelector("#contact-email").value;
-  const message = form.querySelector("#contact-message").value;
-
-  if (name !== "" && email != "" && message != "") {
-    form.reset();
-    const submitBtn = form.querySelector("button[type='submit']");
-    submitBtn.disabled = false;
-    submitBtn.textContent = "SEND MESSAGE";
-    closeSection('contact', false);
-    document.getElementById('thank-you-modal').classList.remove('hidden');
-  }
-});
-
 const burger = document.getElementById('burger');
-const sidenav = document.getElementById('sidenav');
-const logo = document.getElementById('mac-logo');
 
 burger.addEventListener('click', () => {
+  const sidenav = document.getElementById('sidenav');
+  const logo = document.getElementById('mac-logo');
   const isOpen = sidenav.classList.toggle('open');
   burger.classList.toggle('open', isOpen);
   logo.classList.toggle('nav-open', isOpen);

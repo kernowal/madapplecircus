@@ -15,7 +15,7 @@ jobs:
       - name: Run Link Checker
         uses: lycheeverse/lychee-action@v1.9.2
         with:
-          args: "--verbose --no-progress --accept 200,429 --exclude 'https://formsubmit.co/ajax/*' --exclude 'https://fonts.*' ."
+          args: "--verbose --no-progress --accept 200,429 --exclude 'https://fonts.*' ."
           fail: true
 
       - name: Annotate broken links
