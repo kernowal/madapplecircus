@@ -13,8 +13,11 @@ body, html {
 }
 
 h1 {
-  height: 0;
-  width: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 1px;
+  color: transparent;
 }
 
 h2 {
@@ -68,6 +71,17 @@ button {
   height: 100%;
   z-index: -1;
   background: url('assets/background_colour.png') 50% 30% / cover no-repeat fixed;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  border: 0;
 }
 
 /* --- Logo --- */
@@ -209,6 +223,9 @@ button {
   opacity: 1;
   transform: scale(1);
   transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.bwbg {
   background: url('assets/background.png') 50% 30% / cover no-repeat fixed;
 }
 
