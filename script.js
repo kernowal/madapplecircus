@@ -210,3 +210,57 @@ function showForm(id) {
   // Re-enable controls
   [...form.elements].forEach(el => el.disabled = false);
 }
+
+// Cookie banner
+const banner = document.getElementById('cookie-banner');
+const footer = document.querySelector('footer');
+
+function adjustFooter() {
+  if (!footer) return;
+  const bannerHeight = banner.offsetHeight;
+  footer.style.bottom = (bannerHeight + 16) + 'px'; // adjust spacing
+}
+
+function showBanner() {
+  console.log("Show banner")
+  banner.style.display = 'flex';
+  adjustFooter();
+}
+
+function hideBanner() {
+  console.log("Hide banner")
+  banner.style.display = 'none';
+  if (footer) footer.style.bottom = '1rem';
+}
+
+// Show banner if not accepted
+if (!localStorage.getItem('cookiesAccepted')) {
+  showBanner();
+} else {
+  loadGA();
+}
+
+// Accept button
+document.getElementById('cookie-accept').addEventListener('click', function() {
+  localStorage.setItem('cookiesAccepted', 'true');
+  hideBanner();
+  loadGA();
+});
+
+// Load GA after consent
+function loadGA() {
+  const gaScript = document.createElement('script');
+  gaScript.src = "https://www.googletagmanager.com/gtag/js?id=G-076LPQ12GX";
+  gaScript.async = true;
+  document.head.appendChild(gaScript);
+
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-076LPQ12GX');
+}
+
+// Recalculate footer on resize (important for mobile orientation change)
+window.addEventListener('resize', function() {
+  if (banner.style.display === 'flex') adjustFooter();
+});

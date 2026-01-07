@@ -1,0 +1,72 @@
+/* ===== Global Styles ===== */
+body {
+  font-family: 'League Gothic', sans-serif;
+  background-color: #ffffff; /* white background for readability */
+  color: #111; /* dark text */
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+}
+
+/* ===== Header ===== */
+header {
+  background-color: #000; /* black header for contrast */
+  color: #fff;
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+header h1 {
+  font-size: 2rem;
+  margin: 0;
+}
+
+/* ===== Main Content ===== */
+main {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+main h2 {
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  font-size: 1.5rem;
+  color: #000;
+}
+
+main ul {
+  list-style: disc inside;
+  padding-left: 0;
+  margin-left: 0;
+}
+
+main ul li {
+  margin-bottom: 0.5rem;
+}
+
+main a {
+  color: #000; /* same color as text */
+  text-decoration: underline;
+}
+
+/* ===== Footer ===== */
+footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  font-size: 0.9rem;
+  color: #555;
+  border-top: 1px solid #ddd;
+  margin-top: 3rem;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 600px) {
+  header h1 {
+    font-size: 1.5rem;
+  }
+
+  main h2 {
+    font-size: 1.2rem;
+  }
+}

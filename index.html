@@ -7,7 +7,7 @@
   <!-- Page Title & Description -->
   <title>Mad Apple Circus | Bristol Ska Punk 9-piece | Official Site</title>
   <meta name="description" content="Official website for Mad Apple Circus - fuse ska, punk, hip-hop, jazz and Latin grooves. Explore music, tour dates, and merch from Bristol’s horn-fueled nine-piece." />
-  <meta name="keywords" content="Mad Apple Circus, ska punk, ska band, gigs, music, Bristol, live, merch, listen" />
+  <meta name="keywords" content="Mad Apple Circus, ska, punk, ska band, ska punk, hip-hop, gigs, music, Bristol, live, merch, listen, horns, brass" />
   <meta name="author" content="Mad Apple Circus" />
   <meta name="robots" content="index, follow" />
 
@@ -60,6 +60,10 @@
 <body>
   
   <h1>Mad Apple Circus Official Site – Bristol Ska Punk Band</h1>
+  <div id="cookie-banner" class="cookie-banner">
+    <p>WE USE COOKIES TO IMPROVE YOUR WEBSITE EXPERIENCE. BY CLICKING "ACCEPT" YOU CONSENT TO OUR USE OF COOKIES. <a href="privacy.html" target="_blank">PRIVACY POLICY</a>.</p>
+    <button id="cookie-accept">ACCEPT</button>
+  </div>
 
   <div class="section" id="home" aria-label="Home Section">
     <div class="background" id="background"></div>
@@ -97,7 +101,7 @@
   <div class="section bwbg hidden" id="signup" aria-label="Mailing List Signup">
     <div class="overlay">
       <div class="form-wrapper" id="signup-form">
-        <h2>Join Our Mailing List for New Music & Tour Updates</h2>
+        <h2>JOIN OUR MAILING LIST FOR NEW MUSIC & TOUR UPDATES</h2>
         <form 
           id="mailing-list-form"
           action="https://docs.google.com/forms/d/e/1FAIpQLSdMETAo1ntsKLBAlCjsyjlMEvSxMEdXthnOczAkY-IeJ3cslg/formResponse"
@@ -107,6 +111,10 @@
         >
           <input type="text" name="entry.220873809" id="signup-name" placeholder="Your name" required pattern="[A-Za-z\s]{2,50}" >
           <input type="email" name="entry.1653716162" id="signup-email" placeholder="Your email" required>
+          <label class="checkbox-label">
+            <input type="checkbox" name="consent" required>
+            <span>I AGREE TO THE <a href="privacy.html" target="_blank">PRIVACY POLICY</a>.</span>
+          </label>
           <input type="text" name="company" id="signup-honeypot" style="display:none" tabindex="-1" autocomplete="off">
           <button type="submit" class="submit" id="signup-btn">SUBSCRIBE</button>
           <button onclick="closeSection('signup')" class="cancel-btn">CANCEL</button>
@@ -126,7 +134,7 @@
   <div class="section bwbg hidden" id="contact" aria-label="Contact Form Section">
     <div class="overlay">
       <div class="form-wrapper" id="contact-form-wrapper">
-        <h2>Contact / Booking for Mad Apple Circus</h2>
+        <h2>CONTACT / BOOKING FOR MAD APPLE CIRCUS</h2>
         <form
           id="contact-form"
           target="contact_hidden_iframe"
