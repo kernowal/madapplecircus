@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Redirecting...</title>
+    <script type="text/javascript">
+        // 1. Get the path the user was trying to access
+        var currentPath = window.location.pathname;
+
+        // 2. Check if the path contains "shop"
+        if (currentPath.includes('/shop')) {
+            // Send them to the new subdomain
+            window.location.href = "https://shop.madapplecircus.com";
+        } else {
+            // Otherwise, send them to your main homepage
+            window.location.href = "https://madapplecircus.com/";
+        }
+    </script>
+    
+    <meta http-equiv="refresh" content="3;url=https://madapplecircus.com/">
+</head>
+<body>
+    <p>Page not found. Redirecting you to <b>Mad Apple Circus</b>...</p>
+    <p>If you aren't redirected in a few seconds, <a href="https://madapplecircus.com/">click here</a>.</p>
+</body>
+</html>
