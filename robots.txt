@@ -1,4 +1,5 @@
 User-agent: *
+Disallow: /404.html
 Allow: /
 
-Sitemap: https://www.madapplecircus.com/sitemap.xml
+Sitemap: https://madapplecircus.com/sitemap.xml
