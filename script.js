@@ -136,7 +136,7 @@ function handleContactSubmit() {
   formData.append("company", honeypot);
   formData.append("auth_key", "5d4900c6b40444859cd06e71d1aee32f");
 
-  fetch("https://script.google.com/macros/s/AKfycbxxsAyFrKfDfSxWcTsGsaSO8ozHkZMUVkIsJqmnmqW0XciLhJTXEui6YtuX53MJIWCY/exec", {
+  fetch("https://script.google.com/macros/s/AKfycbykaB4Bjp5bvaUv2Ioiq2cjMuUXXD0lxybKts4UtEslkmoujAZOEb-veEJqpHErOPgK/exec", {
     method: 'POST',
     body: formData
   })
