@@ -134,6 +134,7 @@ function handleContactSubmit() {
   formData.append("email", form.querySelector("#contact-email").value);
   formData.append("message", form.querySelector("#contact-message").value);
   formData.append("company", honeypot);
+  formData.append("auth_key", "5d4900c6b40444859cd06e71d1aee32f");
 
   fetch("https://script.google.com/macros/s/AKfycbxxsAyFrKfDfSxWcTsGsaSO8ozHkZMUVkIsJqmnmqW0XciLhJTXEui6YtuX53MJIWCY/exec", {
     method: 'POST',
